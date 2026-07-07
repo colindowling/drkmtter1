@@ -1,0 +1,14 @@
+name: drkmtter1
+region: nyc
+static_sites:
+  - name: web
+    github:
+      repo: colindowling/drkmtter1
+      branch: main
+      deploy_on_push: true
+    source_dir: /
+    build_command: ""
+    output_dir: /
+    routes:
+      - path: /
+    environment_slug: html
