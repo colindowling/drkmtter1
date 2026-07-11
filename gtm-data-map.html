@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Analytics (GA4) -->
+<!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-041BP5G4HF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -60,8 +60,8 @@
       });
     });
   </script>
-  <title>DARK MATTER — Adaptive GTM Intelligence</title>
-  <meta name="description" content="DARK MATTER analyzes your call and CRM data at scale, delivering competitive intelligence that changes outcomes. Win/loss patterns. Living battlecards. Competitive alerts.">
+  <title>The GTM Data Map — DARK MATTER</title>
+  <meta name="description" content="Think your GTM data is a mess? The GTM Data Map from DARK MATTER inventories, categorizes, and rates every source of go-to-market signal you have — so you finally see what you're sitting on. Yours to keep, whether or not we work together.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -511,10 +511,30 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
       .image-band { height: 200px; }
     }
   </style>
+  <style>
+  /* ===== PAGE: GTM DATA MAP ===== */
+  .gdm-hero h1 { max-width: 880px; }
+  .gdm-hero h1 .obj { color: var(--text-primary); }
+  .gdm-hero h1 .reframe { color: var(--accent-blue); font-weight: 200; }
+  .cat-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:1px; background:var(--border-subtle); }
+  .cat-card { background:var(--bg-primary); padding: clamp(24px,3vw,38px); transition: background .3s var(--ease-out); }
+  .cat-card:hover { background:var(--bg-tertiary); }
+  .cat-card .cat-n { font-family:var(--font-heading); font-size:.75rem; color:var(--text-tertiary); letter-spacing:.12em; margin-bottom:14px; }
+  .cat-card h3 { font-size:1.05rem; margin-bottom:8px; }
+  .cat-card p { font-size:.82rem; line-height:1.6; }
+  .map-list { display:grid; gap:1px; background:var(--border-subtle); border:1px solid var(--border-subtle); }
+  .map-row { background:var(--bg-primary); padding: clamp(20px,2.5vw,30px) clamp(24px,3.5vw,44px); display:grid; grid-template-columns:52px 1fr; gap:20px; align-items:start; transition: background .3s var(--ease-out); }
+  .map-row:hover { background:var(--bg-tertiary); }
+  .map-row .mk { font-family:var(--font-heading); font-weight:200; font-size:1.6rem; color:var(--accent-blue); line-height:1.05; }
+  .map-row h3 { font-size:1rem; margin-bottom:6px; }
+  .map-row p { font-size:.85rem; line-height:1.6; }
+  .keepsake { border-left:2px solid var(--accent-blue); background:var(--accent-blue-dim); padding:20px 26px; margin-top:36px; max-width:840px; }
+  .keepsake p { color:var(--text-primary); font-size:.98rem; max-width:none; margin:0; }
+  @media (max-width:768px){ .map-row{ grid-template-columns:40px 1fr; gap:14px; } }
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav id="nav" class="scrolled">
     <div class="container nav-inner">
       <a href="/" class="nav-logo">DARK <em>MATTER</em></a>
@@ -561,223 +581,126 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
     </div>
   </nav>
 
+
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero gdm-hero">
     <div class="container">
-      <h1>
-        <span class="line1"><span class="typewriter" id="type1"></span></span><br>
-        <span class="line2 thin"><span class="typewriter" id="type2"></span></span>
-      </h1>
-      <p class="hero-sub">DARK MATTER analyzes your call recordings, CRM data, and deal history over time and at scale — then delivers the competitive intelligence your revenue team needs to win more deals.<br><br>No dashboards. No new logins. Just answers.</p>
+      <div class="hero-eyebrow"><span class="line"></span><span class="label label--accent">The GTM Data Map</span></div>
+      <h1><span class="obj">&ldquo;But our data<br>is a mess.&rdquo;</span><br><span class="reframe">Good. Let&rsquo;s map it.</span></h1>
+      <p class="hero-sub">Every revenue team says it. Almost none of them can actually see what they have. Before you fix anything &mdash; before you automate, forecast, or feed a single model &mdash; you need one clear picture of every GTM signal at your disposal. That picture is the GTM Data Map.</p>
       <div class="hero-cta" style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;">
-        <a href="/contact.html" class="btn btn--primary">
-          <span>Improve Your Close Rate by 10% in 30 Days</span>
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="/gtm-data-map.html" class="btn">
-          <span>Data a mess? Start here</span>
-          <svg class="btn-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-      <div class="hero-stats">
-        <div class="hero-stat"><div class="num">500+</div><div class="desc">Calls analyzed per customer, per quarter</div></div>
-        <div class="hero-stat"><div class="num">&lt;30</div><div class="desc">Avg. days to first measurable lift</div></div>
-        <div class="hero-stat"><div class="num">+23pt</div><div class="desc">Avg. competitive win rate improvement</div></div>
+        <a href="/contact.html" class="btn btn--primary"><span>Get your GTM Data Map</span><svg class="btn-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="#whats-on-the-map" class="btn"><span>See what&rsquo;s on the map</span></a>
       </div>
     </div>
   </section>
 
-  <!-- QUOTE BANNER -->
-  <div class="quote-banner reveal">
-    <!-- REPLACE: add background-image url and remove .placeholder class -->
-    <div class="quote-bg placeholder"></div>
-    <div class="container--narrow">
-      <blockquote>"You've built Palantir for sales analytics."</blockquote>
-      <cite><strong>Jacob Valentine</strong> — Managing Director, Claymore Capital</cite>
-    </div>
-  </div>
-
-  <!-- PROBLEM -->
+  <!-- THE REAL PROBLEM -->
   <section id="problem">
     <div class="container">
       <div class="section-header reveal">
-        <div class="label">The Problem</div>
-        <h2>Revenue teams are flying blind.</h2>
-        <p>Your tools capture everything. They synthesize nothing. The gap between data and intelligence is where deals die.</p>
+        <div class="label">The Real Problem</div>
+        <h2>The mess isn&rsquo;t the problem.<br>Not knowing what&rsquo;s in it is.</h2>
+        <p>Messy data doesn&rsquo;t lose deals. Invisible data does. When you can&rsquo;t see what you&rsquo;re sitting on, you can&rsquo;t tell the goldmine from the noise from the liability &mdash; so it all just sits there.</p>
       </div>
       <div class="problem-grid">
-        <div class="problem-card reveal"><div class="num">01</div><h3>No pattern synthesis at scale</h3><p>Your team listened to 20 calls last quarter. You recorded 500. The patterns in the other 480 are invisible.</p></div>
-        <div class="problem-card reveal"><div class="num">02</div><h3>Stale competitive intelligence</h3><p>Battlecards built 18 months ago by a PMM who's since left. Pricing is wrong. Positioning is stale. Reps stopped using them.</p></div>
-        <div class="problem-card reveal"><div class="num">03</div><h3>No buyer voice analysis</h3><p>You lost 12 deals to Competitor X. You don't know the three objections that killed them — or the talk track that could have saved them.</p></div>
-        <div class="problem-card reveal"><div class="num">04</div><h3>Leaders watch the scoreboard, not the game</h3><p>Dashboards show what happened. Nobody is telling you why — or what to do differently tomorrow.</p></div>
+        <div class="problem-card reveal"><div class="num">01</div><h3>Signal you never use</h3><p>Calls, emails, and notes full of buyer intent that never reach a decision. The answer was in the data. Nobody could find it.</p></div>
+        <div class="problem-card reveal"><div class="num">02</div><h3>Three systems, three answers</h3><p>The CRM says one thing, the call platform another, the spreadsheet a third. No source of truth means no trust.</p></div>
+        <div class="problem-card reveal"><div class="num">03</div><h3>Data you can&rsquo;t rely on</h3><p>Stale fields. Blank stages. Close reasons picked at random. A pipeline that quietly lies to you every Monday.</p></div>
+        <div class="problem-card reveal"><div class="num">04</div><h3>No idea what&rsquo;s usable</h3><p>You want to put this data to work &mdash; automation, forecasting, AI. You just don&rsquo;t know which parts are ready and which are landmines.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- VIDEO BAND -->
-  <div class="image-band band-tall">
-    <video class="band-img" autoplay muted loop playsinline src="assets/band-video.mp4"></video>
-    <div class="band-overlay"></div>
-    <div class="band-cta-layer">
-      <a href="/contact.html" class="cta-primary">Equip Your Team with the Intelligence They Need →</a>
-    </div>
-  </div>
-
-  <!-- CASE STUDIES -->
-  <section id="results" class="cases">
+  <!-- WHAT'S ON THE MAP -->
+  <section id="whats-on-the-map" style="background:var(--bg-secondary);">
     <div class="container">
       <div class="section-header reveal">
-        <div class="label">Results</div>
-        <h2>Capability, proven.</h2>
+        <div class="label label--accent">What We Map</div>
+        <h2>Every source of GTM signal you have.</h2>
+        <p>We inventory the data your go-to-market motion generates &mdash; the obvious systems and the ones hiding in inboxes and call libraries &mdash; then categorize each source and rate it for coverage, quality, and readiness.</p>
       </div>
-      <div class="case-card reveal">
-        <div class="case-info">
-          <div class="case-meta"><span class="label">Case Study</span><span class="dot"></span><span class="label">Austin, TX</span></div>
-          <h3>B2B Endpoint Security Platform</h3>
-          <p>Series B ($29M ARR). Win rate plateaued at 38% in competitive deals — 12-person team losing winnable deals to stale battlecards. Full competitive intelligence deployment: 500+ call analysis, living battlecards, weekly radar.</p>
-        </div>
-        <div class="case-metrics">
-          <div class="metric"><div class="val val--g">+23pts</div><div class="ml">Win rate: 38% → 61%</div></div>
-          <div class="metric"><div class="val">28 Days</div><div class="ml">To first measurable lift</div></div>
-          <div class="metric"><div class="val val--g">$4.2M</div><div class="ml">Pipeline recovered</div></div>
-          <div class="metric"><div class="val">-40%</div><div class="ml">Rep ramp time</div></div>
-        </div>
+      <div class="cat-grid reveal">
+        <div class="cat-card"><div class="cat-n">01</div><h3>Conversations</h3><p>Call recordings, demos, and discovery notes &mdash; your Gong, Chorus, or Fireflies library.</p></div>
+        <div class="cat-card"><div class="cat-n">02</div><h3>CRM &amp; Pipeline</h3><p>Accounts, opportunities, stages, activities, and close reasons &mdash; the system of record.</p></div>
+        <div class="cat-card"><div class="cat-n">03</div><h3>Marketing &amp; Demand</h3><p>Campaigns, attribution, web analytics, MQL flow, and ad-platform data.</p></div>
+        <div class="cat-card"><div class="cat-n">04</div><h3>Product &amp; Usage</h3><p>Telemetry, activation, adoption, and the product-qualified signals buyers send.</p></div>
+        <div class="cat-card"><div class="cat-n">05</div><h3>Customer &amp; Retention</h3><p>Support tickets, CS notes, NPS, and the early signals of churn and expansion.</p></div>
+        <div class="cat-card"><div class="cat-n">06</div><h3>Buyer &amp; Market</h3><p>Win/loss records, competitive intel, review sites, intent data, and enrichment.</p></div>
+        <div class="cat-card"><div class="cat-n">07</div><h3>Outbound &amp; Engagement</h3><p>Sequences, email opens and replies, LinkedIn touches, and reply threads.</p></div>
+        <div class="cat-card"><div class="cat-n">08</div><h3>Revenue &amp; Finance</h3><p>ARR, cohorts, forecast, quota, and comp &mdash; where GTM meets the P&amp;L.</p></div>
       </div>
-      <div class="case-card reveal" style="margin-top: 2px;">
-        <div class="case-info">
-          <div class="case-meta"><span class="label">Case Study</span><span class="dot"></span><span class="label">Denver, CO</span></div>
-          <h3>B2B Data Integration & ETL Platform</h3>
-          <p>Series A ($11M ARR). Well-funded competitor dropped pricing 30% and launched displacement campaign. Sales team was reactive — learning about competitor moves mid-deal. Deployed competitive radar + living battlecards.</p>
-        </div>
-        <div class="case-metrics">
-          <div class="metric"><div class="val val--g">+18pts</div><div class="ml">Win rate: 29% → 47%</div></div>
-          <div class="metric"><div class="val">+31%</div><div class="ml">Deal velocity</div></div>
-          <div class="metric"><div class="val val--g">92%</div><div class="ml">Pricing holds (was 76%)</div></div>
-          <div class="metric"><div class="val">6x</div><div class="ml">Battlecard usage/rep</div></div>
-        </div>
-      </div>
-      <div class="case-note">* Details, verification, and references provided upon request.</div>
     </div>
   </section>
 
-  <!-- DATA VIZ BAND -->
-  <div class="image-band">
-    <img class="band-img" src="assets/band-dataviz.jpg" alt="Data network visualization" style="filter: grayscale(100%) brightness(0.35) contrast(1.3);">
-    <div class="band-overlay" style="background: linear-gradient(to bottom, var(--bg-primary) 0%, rgba(10,10,10,0.4) 20%, rgba(10,10,10,0.4) 80%, var(--bg-primary) 100%);"></div>
-  </div>
-
-  <!-- ANIMATED DIVIDER -->
-  <div class="divider-animated reveal"></div>
-
-  <!-- SOLUTION -->
-  <section id="solution">
+  <!-- THE DELIVERABLE -->
+  <section id="deliverable">
     <div class="container">
       <div class="section-header reveal">
-        <div class="label">The Solution</div>
-        <h2><span class="typewriter-scroll" id="typeSolution" data-text="What DARK MATTER does differently."></span></h2>
-        <p>Wider analysis. Deeper synthesis. A human intelligence layer no platform can replicate.</p>
+        <div class="label">The Deliverable</div>
+        <h2>The GTM Data Map</h2>
+        <p>One clear picture of everything you have &mdash; and what each piece is actually worth.</p>
       </div>
-      <div class="diff-grid">
-        <div class="diff-card reveal"><h3>Scale, not samples</h3><p>500+ calls per quarter analyzed — not 10 interviews. Statistical patterns from your entire call library, not anecdotes from a cherry-picked sample.</p></div>
-        <div class="diff-card reveal"><h3>Cross-source synthesis</h3><p>Sales calls + CRM deal data + emails + post-mortem feedback — all correlated. What buyers told you, what reps said, what the CRM shows.</p></div>
-        <div class="diff-card reveal"><h3>Actionable output, not artifacts</h3><p>Living battlecards. Board-ready narratives. Weekly competitive radar. Delivered to your inbox — zero logins, zero dashboards.</p></div>
-        <div class="diff-card reveal"><h3>Built by a 3x VP of Sales</h3><p>Not consultants guessing from the outside. A practitioner who's sat in the CRO chair and knows which insights actually change pipeline outcomes.</p></div>
+      <div class="map-list reveal">
+        <div class="map-row"><div class="mk">01</div><div><h3>A complete inventory</h3><p>Every GTM data source you have, in one place &mdash; including the ones nobody remembered you were collecting.</p></div></div>
+        <div class="map-row"><div class="mk">02</div><div><h3>A clear categorization</h3><p>Organized into the eight domains above, so a messy sprawl finally reads as a structured picture.</p></div></div>
+        <div class="map-row"><div class="mk">03</div><div><h3>A quality &amp; coverage rating</h3><p>What&rsquo;s complete, what&rsquo;s stale, what&rsquo;s duplicated, and where the real gaps are.</p></div></div>
+        <div class="map-row"><div class="mk">04</div><div><h3>A readiness score</h3><p>What&rsquo;s usable today for reporting, automation, and AI &mdash; and what needs work before you trust it.</p></div></div>
+        <div class="map-row"><div class="mk">05</div><div><h3>Your highest-value quick wins</h3><p>The three-to-five places where signal you already own can change an outcome this quarter.</p></div></div>
       </div>
-      <a href="/landscape.html" class="landscape-link">See how we compare to Klue, Clozd, Gong, and others <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <div class="keepsake reveal"><p>It&rsquo;s yours to keep &mdash; whether or not you ever decide to work with us.</p></div>
     </div>
   </section>
 
-  <!-- CITYSCAPE BAND -->
-  <div class="image-band band-tall-2">
-    <img class="band-img" src="assets/band-city.png" alt="City skyline at night">
-    <div class="band-overlay"></div>
-    <div class="band-cta-layer">
-      <a href="/contact.html" class="cta-primary">Learn What Makes DARK MATTER Different →</a>
-    </div>
-  </div>
-
-  <!-- PROCESS + DELIVERABLES -->
-  <section id="process" style="background: var(--bg-secondary);">
+  <!-- HOW IT WORKS -->
+  <section id="how" style="background:var(--bg-secondary);">
     <div class="container">
       <div class="section-header reveal">
-        <div class="label">Process</div>
-        <h2>From flying blind to higher close rates in 30 days.</h2>
+        <div class="label">How It Works</div>
+        <h2>From mess to map in three steps.</h2>
       </div>
       <div class="process-row reveal">
-        <div class="process-step"><div class="sn">01</div><h3><a href="/audit.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--border-medium);">Intelligence Audit</a></h3><p>We connect to your call recording software (Gong, Chorus, Fireflies, etc), analyze your last two quarters of competitive deals, and present a full synthesis with artifacts showing the patterns you've been missing to leadership in a 60 minute session.</p><div class="price">$7,500 one-time — credited against any ongoing retainer</div></div>
-        <div class="process-step"><div class="sn">02</div><h3>System Deployment</h3><p>We build your intelligence layer — automated call analysis, competitive monitoring, battlecard generation. Deliverables land in your inbox. Operational within 30 days.</p><div class="price">Fully deployed in under a month</div></div>
-        <div class="process-step"><div class="sn">03</div><h3>Continuous Intelligence</h3><p>Quarterly win/loss analysis. Monthly battlecard refreshes. Weekly competitive radar. Board-ready narratives. Intelligence that compounds every quarter.</p><div class="price">Starting at $25,000 per quarter</div></div>
-      </div>
-
-      <div class="section-header reveal" style="margin-top: clamp(48px, 8vh, 80px);">
-        <h2>Four deliverables. <span style="color: var(--text-tertiary);">Zero dashboards.</span></h2>
-      </div>
-      <div class="del-stack">
-        <div class="del-card">
-          <div class="del-text"><span class="cadence c-q">Quarterly</span><h3>Win/Loss Pattern Analysis</h3><p>Statistical patterns from every competitive deal. Which objections kill deals? Which talk tracks win? 15–20 page report + walkthrough.</p></div>
-          <div class="del-img"><img src="assets/del-winloss.png" alt="Win/Loss Pattern Analysis Dashboard"></div>
-        </div>
-        <div class="del-card">
-          <div class="del-text"><span class="cadence c-m">Monthly</span><h3>Living Battlecards</h3><p>Updated from real buyer conversations. New objections, pricing intel, and counter-positioning proven to work.</p></div>
-          <div class="del-img"><img src="assets/del-battlecard.png" alt="Living Battlecard"></div>
-        </div>
-        <div class="del-card">
-          <div class="del-text"><span class="cadence c-w">Weekly</span><h3>Competitive Radar</h3><p>Competitor moves that matter: product launches, pricing changes, hiring signals, review sentiment. Signal, not noise.</p></div>
-          <div class="del-img"><img src="assets/del-radar.png" alt="Competitive Radar Digest"></div>
-        </div>
-        <div class="del-card">
-          <div class="del-text"><span class="cadence c-q">Quarterly</span><h3>Board-Ready Narrative</h3><p>Strategic synthesis your CEO drops into the board deck. Win rate trends, competitive threats, recommended responses.</p></div>
-          <div class="del-img"><img src="assets/del-board.png" alt="Board-Ready Narrative Slide"></div>
-        </div>
+        <div class="process-step"><div class="sn">01</div><h3>Show us your stack</h3><p>A short working session. You walk us through the tools and data you use to run go-to-market. No prep. No cleanup. Come as messy as you are.</p></div>
+        <div class="process-step"><div class="sn">02</div><h3>We map &amp; rate it</h3><p>We categorize every source, assess coverage and quality, and score what&rsquo;s ready to drive real intelligence.</p></div>
+        <div class="process-step"><div class="sn">03</div><h3>You get the Map</h3><p>A clear readout and the GTM Data Map itself. Yours to keep. What you do next is entirely up to you.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- BOARDROOM BAND -->
-  <div class="image-band band-tall-2">
-    <img class="band-img" src="assets/band-boardroom.png" alt="Executive boardroom" style="filter: grayscale(100%) brightness(0.95) contrast(1.2);">
-    <div class="band-overlay" style="background: linear-gradient(to bottom, var(--bg-secondary) 0%, rgba(10,10,10,0.1) 15%, rgba(10,10,10,0.1) 85%, var(--bg-primary) 100%);"></div>
+  <!-- STATEMENT BANNER -->
+  <div class="quote-banner reveal">
+    <div class="quote-bg placeholder"></div>
+    <div class="container--narrow">
+      <blockquote>You can&rsquo;t get intelligence out of data you can&rsquo;t see.</blockquote>
+      <cite>The first step is always the map.</cite>
+    </div>
   </div>
 
-  <!-- FOUNDER -->
-  <section id="founder">
-    <div class="container">
-      <div class="founder-row reveal">
-        <div class="founder-photo"><img src="assets/founder-headshot.jpg" alt="Colin Dowling, Founder of DARK MATTER"></div>
-        <div class="founder-info">
-          <div class="label" style="margin-bottom: 16px;">About the Founder</div>
-          <h2>Colin Dowling</h2>
-          <div class="founder-title">Founder, DARK MATTER</div>
-          <p>I've been in the VP of Sales seat multiple times. From VP of Sales for GoDaddy's Enterprise Sales division to VP of Channel for a PE-backed $100M cloud infrastructure firm, to serving as SVP of Revenue at a $650M AI startup, I know first-hand the battles that sales leaders face and the tools and tactics that help win the war.</p>
-          <p>That's why I built DARK MATTER — so revenue leaders and their teams can enter competitive deals with the best possible chance to win every time.</p>
-          <div class="creds">
-            <span class="cred">VP Enterprise Sales — GoDaddy (NYSE: GDDY)</span>
-            <span class="cred">SVP Revenue — Alembic (Seed → $145M B)</span>
-            <span class="cred">VP Partnerships — Liquid Web</span>
-            <span class="cred">Enterprise Sales — WP Engine</span>
-            <span class="cred">3x Founder</span>
-          </div>
-        </div>
+  <!-- NO LOCK-IN / TRUST -->
+  <section id="trust">
+    <div class="container--narrow">
+      <div class="section-header reveal" style="margin-bottom:24px;">
+        <div class="label">No Lock-In</div>
+        <h2>No strings. No cleanup. Just clarity.</h2>
+        <p>The Map is useful entirely on its own. If it convinces you we should keep going, we&rsquo;d love that. If not, you still walk away knowing exactly what you have and what it can do. We connect read-only and treat your data like it&rsquo;s ours to protect.</p>
       </div>
+      <a href="/security.html" class="landscape-link" style="justify-content:flex-start;">How we handle your data <svg class="btn-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- FINAL CTA -->
   <section class="final-cta">
     <div class="container">
       <div class="reveal">
-        <div class="label label--accent" style="margin-bottom: 20px;">Get Started</div>
-        <h2>An entire intelligence department.<br>Deployed, ramped, and working in under 30 days.</h2>
-        <p>We connect to your call recordings and CRM, analyze your last two quarters of competitive deals, and present the patterns you've been missing in a 60-minute session with your leadership team. Most CROs find at least one surprise.</p>
-        <a href="/audit.html" class="btn btn--primary">
-          <span>Book Your Intelligence Audit</span>
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <div class="label label--accent" style="margin-bottom:20px;">Get Started</div>
+        <h2>Stop guessing what you&rsquo;re sitting on.</h2>
+        <p>Get your GTM Data Map. See every source of GTM signal you have, rated for what it can actually do &mdash; starting with one working session.</p>
+        <a href="/contact.html" class="btn btn--primary"><span>Get your GTM Data Map</span><svg class="btn-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+
   <footer>
     <div class="container">
       <div class="footer-layout">
@@ -792,101 +715,20 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // Nav scroll
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
-
-
-    // Scroll reveal
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); });
-    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-    // Parallax on image bands
-    function parallax() {
-      document.querySelectorAll('[data-parallax]').forEach(img => {
-        const band = img.parentElement;
-        const rect = band.getBoundingClientRect();
-        const vh = window.innerHeight;
-        if (rect.top < vh && rect.bottom > 0) {
-          const progress = (vh - rect.top) / (vh + rect.height);
-          img.style.transform = `translateY(${(progress - 0.5) * 60}px)`;
-        }
-      });
-    }
-    window.addEventListener('scroll', parallax, { passive: true });
-
-    // Typewriter effect
-    function typewrite(el, text, speed, cb) {
-      let i = 0;
-      function tick() {
-        if (i <= text.length) {
-          el.textContent = text.slice(0, i);
-          i++;
-          setTimeout(tick, speed);
-        } else if (cb) {
-          el.classList.add('done');
-          cb();
-        }
-      }
-      tick();
-    }
-    setTimeout(() => {
-      typewrite(document.getElementById('type1'), 'Dashboards tell you what happened.', 38, () => {
-        const line2 = document.querySelector('.line2');
-        line2.classList.add('typing');
-        setTimeout(() => {
-          typewrite(document.getElementById('type2'), 'We tell you why.', 50);
-        }, 300);
-      });
-    }, 400);
-
-    // Scroll-triggered typewriter
-    const scrollTypeEls = document.querySelectorAll('.typewriter-scroll');
-    const typeObs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !entry.target.dataset.started) {
-          entry.target.dataset.started = 'true';
-          const text = entry.target.dataset.text;
-          let i = 0;
-          function tick() {
-            if (i <= text.length) {
-              entry.target.textContent = text.slice(0, i);
-              i++;
-              setTimeout(tick, 35);
-            } else {
-              entry.target.classList.add('done');
-            }
-          }
-          tick();
-        }
-      });
-    }, { threshold: 0.5 });
-    scrollTypeEls.forEach(el => typeObs.observe(el));
-
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        const href = a.getAttribute('href');
-        if (href.startsWith('#')) {
-          const target = document.querySelector(href);
-          if (target) target.scrollIntoView({ behavior: 'smooth' });
-        }
+    const revealObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el){ revealObs.observe(el); });
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        var href = a.getAttribute('href');
+        if (href && href.length > 1) { var t = document.querySelector(href); if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); } }
       });
     });
-
-    // Reveal on scroll
-    const revealEls = document.querySelectorAll('.reveal');
-    const revealObs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1 });
-    revealEls.forEach(el => revealObs.observe(el));
-
   </script>
 </body>
 </html>
