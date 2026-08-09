@@ -525,6 +525,40 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
     @media (max-width: 1024px) { .diff-grid--five { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 768px)  { .diff-grid--five { grid-template-columns: 1fr; } }
 
+    /* --- ADDITIVE: accordions --- */
+    .acc-toggle {
+      display: inline-flex; align-items: center; gap: 12px; margin-top: 28px;
+      background: none; border: 1px solid var(--border-medium); cursor: pointer;
+      padding: 12px 24px; color: var(--text-secondary);
+      font-family: var(--font-body); font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+    .acc-toggle:hover { color: var(--text-primary); border-color: var(--text-primary); }
+    .acc-toggle .acc-icon {
+      display: inline-block; width: 10px; height: 10px; position: relative;
+      transition: transform 0.4s var(--ease-out);
+    }
+    .acc-toggle .acc-icon::before,
+    .acc-toggle .acc-icon::after {
+      content: ''; position: absolute; background: currentColor;
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+    }
+    .acc-toggle .acc-icon::before { width: 10px; height: 1px; }
+    .acc-toggle .acc-icon::after  { width: 1px; height: 10px; transition: opacity 0.3s ease; }
+    .acc-toggle[aria-expanded="true"] .acc-icon { transform: rotate(180deg); }
+    .acc-toggle[aria-expanded="true"] .acc-icon::after { opacity: 0; }
+    .acc-panel {
+      max-height: 0; overflow: hidden; opacity: 0;
+      transition: max-height 0.55s var(--ease-out), opacity 0.4s ease, margin-top 0.55s var(--ease-out);
+      margin-top: 0;
+    }
+    .acc-panel.open { opacity: 1; margin-top: 32px; }
+    .h2--statement {
+      font-size: clamp(1.25rem, 2vw, 1.85rem); line-height: 1.35;
+      max-width: 1040px; letter-spacing: -0.01em;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 1024px) {
       .case-card { grid-template-columns: 1fr; }
@@ -607,17 +641,51 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
   <!-- PROBLEM -->
   <section id="problem">
     <div class="container">
-      <div class="section-header reveal">
+      <div class="section-header reveal" style="margin-bottom:0;">
         <div class="label">The Problem</div>
         <h2>You're hitting MQL targets and missing the revenue number.</h2>
         <p>Sales and marketing don't talk. Different KPIs. Different timelines. Different strategies. It is not a culture problem — it is a structural one. Marketing has never had visibility into what is happening in deals. Sales has never had the context to understand what marketing is doing. The result: marketing builds strategy with half the data.</p>
+        <button class="acc-toggle" type="button" aria-expanded="false" aria-controls="problemPanel" data-acc>
+          <span class="acc-icon"></span><span class="acc-text">See the four gaps</span>
+        </button>
       </div>
-      <div class="problem-grid">
-        <div class="problem-card reveal"><div class="num">01</div><h3>Marketing has never seen the bottom of the funnel</h3><p>What buyers say in deals. What objections are killing close rates. Why you are really losing. That data exists — in call recordings, in closed-lost notes, in emails. Your marketing team has never had access to any of it.</p></div>
-        <div class="problem-card reveal"><div class="num">02</div><h3>The intelligence that does cross the wall is stale by the time it arrives</h3><p>A rep mentions something in a QBR. A PMM hears it in a sales meeting six weeks later. By then the market has moved. The window has closed. The battlecard is wrong.</p></div>
-        <div class="problem-card reveal"><div class="num">03</div><h3>Content is built on assumptions because buyer data never makes it upstream</h3><p>Your content team publishes what they think buyers want to read. The evidence of what buyers actually care about is in hundreds of call recordings nobody has synthesized.</p></div>
-        <div class="problem-card reveal"><div class="num">04</div><h3>Campaigns optimize for lead flow when they should optimize for revenue</h3><p>That gap does not close on its own. It closes when marketing has the same picture sales has — and can build a strategy that reaches all the way to the close.</p></div>
+      <div class="acc-panel" id="problemPanel">
+        <div class="problem-grid">
+          <div class="problem-card reveal"><div class="num">01</div><h3>Marketing has never seen the bottom of the funnel</h3><p>What buyers say in deals. What objections are killing close rates. Why you are really losing. That data exists — in call recordings, in closed-lost notes, in emails. Your marketing team has never had access to any of it.</p></div>
+          <div class="problem-card reveal"><div class="num">02</div><h3>The intelligence that does cross the wall is stale by the time it arrives</h3><p>A rep mentions something in a QBR. A PMM hears it in a sales meeting six weeks later. By then the market has moved. The window has closed. The battlecard is wrong.</p></div>
+          <div class="problem-card reveal"><div class="num">03</div><h3>Content is built on assumptions because buyer data never makes it upstream</h3><p>Your content team publishes what they think buyers want to read. The evidence of what buyers actually care about is in hundreds of call recordings nobody has synthesized.</p></div>
+          <div class="problem-card reveal"><div class="num">04</div><h3>Campaigns optimize for lead flow when they should optimize for revenue</h3><p>That gap does not close on its own. It closes when marketing has the same picture sales has — and can build a strategy that reaches all the way to the close.</p></div>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ANIMATED DIVIDER -->
+  <div class="divider-animated reveal"></div>
+
+  <!-- SOLUTION -->
+  <section id="solution">
+    <div class="container">
+      <div class="section-header reveal" style="margin-bottom:0;">
+        <div class="label label--accent">The Solution</div>
+        <h2 class="h2--statement">DARK MATTER performs time-series synthesis on the data siloed in sales tools, marketing analytics, customer intelligence, and competitor analysis to show what's happening in your funnel, why, and what to do next to accelerate growth.</h2>
+        <button class="acc-toggle" type="button" aria-expanded="false" aria-controls="solutionPanel" data-acc>
+          <span class="acc-icon"></span><span class="acc-text">See the five signal categories</span>
+        </button>
+      </div>
+      <div class="acc-panel" id="solutionPanel">
+        <div class="diff-grid diff-grid--five">
+          <div class="diff-card reveal"><span class="c-label">C1</span><h3>Customers</h3><p>Voice-of-customer intelligence. Win/loss patterns, buyer language, ICP drift, churn signals. What buyers say when they are not in a sales conversation.</p></div>
+          <div class="diff-card reveal"><span class="c-label">C2</span><h3>Competitors</h3><p>Hiring signals, funding moves, pricing shifts, positioning changes, review velocity. What competitors do — not what they say.</p></div>
+          <div class="diff-card reveal"><span class="c-label">C3</span><h3>Content</h3><p>What buyers search for and find. Demand patterns, SERP ownership, AI citation gaps, which content actually moves deals versus which sits unused.</p></div>
+          <div class="diff-card reveal"><span class="c-label">C4</span><h3>Conversations</h3><p>What is happening inside your deals. Call patterns, objection frequency, competitive mentions, rep behavior — synthesized at the portfolio level, not by individual rep.</p></div>
+          <div class="diff-card reveal"><span class="c-label">C5</span><h3>Chronology</h3><p>The dimension that makes the other four compound. A battlecard is accurate right up until a competitor changes their price. Chronology tracks how all five signals move together over time — so the briefing you receive is a living picture, not a snapshot.</p></div>
+        </div>
+        <div class="callout reveal">
+          <p>Most intelligence is a snapshot. DARK MATTER is a continuous picture. Every briefing is built on the same five categories, tracked over time, so patterns surface before they become problems.</p>
+        </div>
+      </div>
+      <a href="/landscape.html" class="landscape-link">See how DARK MATTER compares to Klue, Clozd, Gong, and others <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
   </section>
 
@@ -655,31 +723,6 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
     <div class="band-overlay" style="background: linear-gradient(to bottom, var(--bg-primary) 0%, rgba(10,10,10,0.4) 20%, rgba(10,10,10,0.4) 80%, var(--bg-primary) 100%);"></div>
   </div>
 
-  <!-- ANIMATED DIVIDER -->
-  <div class="divider-animated reveal"></div>
-
-  <!-- SOLUTION -->
-  <section id="solution">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="label">How It Works</div>
-        <h2><span class="typewriter-scroll" id="typeSolution" data-text="Five signal categories. Synthesized together over time."></span></h2>
-        <p>Most tools look at one or two signals in isolation. DARK MATTER synthesizes five simultaneously and tracks how they move together. That is what makes the output directive — not just descriptive.</p>
-      </div>
-      <div class="diff-grid diff-grid--five">
-        <div class="diff-card reveal"><span class="c-label">C1</span><h3>Customers</h3><p>Voice-of-customer intelligence. Win/loss patterns, buyer language, ICP drift, churn signals. What buyers say when they are not in a sales conversation.</p></div>
-        <div class="diff-card reveal"><span class="c-label">C2</span><h3>Competitors</h3><p>Hiring signals, funding moves, pricing shifts, positioning changes, review velocity. What competitors do — not what they say.</p></div>
-        <div class="diff-card reveal"><span class="c-label">C3</span><h3>Content</h3><p>What buyers search for and find. Demand patterns, SERP ownership, AI citation gaps, which content actually moves deals versus which sits unused.</p></div>
-        <div class="diff-card reveal"><span class="c-label">C4</span><h3>Conversations</h3><p>What is happening inside your deals. Call patterns, objection frequency, competitive mentions, rep behavior — synthesized at the portfolio level, not by individual rep.</p></div>
-        <div class="diff-card reveal"><span class="c-label">C5</span><h3>Chronology</h3><p>The dimension that makes the other four compound. A battlecard is accurate right up until a competitor changes their price. Chronology tracks how all five signals move together over time — so the briefing you receive is a living picture, not a snapshot.</p></div>
-      </div>
-      <div class="callout reveal">
-        <p>Most intelligence is a snapshot. DARK MATTER is a continuous picture. Every briefing is built on the same five categories, tracked over time, so patterns surface before they become problems.</p>
-      </div>
-      <a href="/landscape.html" class="landscape-link">See how DARK MATTER compares to Klue, Clozd, Gong, and others <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-  </section>
-
   <!-- CITYSCAPE BAND -->
   <div class="image-band band-tall-2">
     <img class="band-img" src="assets/band-city.png" alt="City skyline at night">
@@ -694,7 +737,7 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
     <div class="container">
       <div class="section-header reveal">
         <div class="label">Get Started</div>
-        <h2>We build your intelligence picture before you give us anything.</h2>
+        <h2>Let us build your intelligence picture before you give us anything.</h2>
         <p>DARK MATTER starts with public signals. No CRM access. No call recordings. Just proof of what we can see. If it does not change how you think about your market, the conversation ends there.</p>
       </div>
       <div class="process-row reveal">
@@ -804,6 +847,44 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
       }
       tick();
     }
+    // Accordions: Problem / Solution
+    document.querySelectorAll('[data-acc]').forEach(function(btn) {
+      var panel = document.getElementById(btn.getAttribute('aria-controls'));
+      if (!panel) return;
+      var label = btn.querySelector('.acc-text');
+      var openText = label ? label.textContent : '';
+      btn.addEventListener('click', function() {
+        var isOpen = btn.getAttribute('aria-expanded') === 'true';
+        if (isOpen) {
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          requestAnimationFrame(function() { panel.style.maxHeight = '0px'; });
+          panel.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          if (label) label.textContent = openText;
+        } else {
+          panel.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+          // reveal any cards inside before measuring
+          panel.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('visible'); });
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          if (label) label.textContent = 'Close';
+        }
+      });
+      // keep height correct on resize while open
+      window.addEventListener('resize', function() {
+        if (btn.getAttribute('aria-expanded') === 'true') {
+          panel.style.maxHeight = 'none';
+          var h = panel.scrollHeight;
+          panel.style.maxHeight = h + 'px';
+        }
+      });
+      panel.addEventListener('transitionend', function(e) {
+        if (e.propertyName === 'max-height' && btn.getAttribute('aria-expanded') === 'true') {
+          panel.style.maxHeight = 'none';
+        }
+      });
+    });
+
     // Scroll-triggered typewriter
     const scrollTypeEls = document.querySelectorAll('.typewriter-scroll');
     const typeObs = new IntersectionObserver(entries => {
