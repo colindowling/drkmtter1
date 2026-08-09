@@ -60,8 +60,8 @@
       });
     });
   </script>
-  <title>DARK MATTER — Adaptive GTM Intelligence</title>
-  <meta name="description" content="DARK MATTER analyzes your call and CRM data at scale, delivering competitive intelligence that changes outcomes. Win/loss patterns. Living battlecards. Competitive alerts.">
+  <title>DARK MATTER — Sales Intelligence for Marketing Teams</title>
+  <meta name="description" content="DARK MATTER synthesizes your sales motion with market signals and delivers a monthly intelligence briefing for marketing leadership. No dashboards. No new tools. The full-funnel picture your team has never had.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -494,6 +494,37 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
     .final-cta h2 { margin-bottom: 16px; }
     .final-cta p { margin: 0 0 32px; }
 
+    /* --- ADDITIVE: question grid (6 cards), five-card solution grid, callout --- */
+    .problem-card.reveal:nth-child(5) { transition-delay: 0.48s; }
+    .problem-card.reveal:nth-child(6) { transition-delay: 0.60s; }
+    .q-card h3 { font-size: 1.02rem; line-height: 1.35; margin-bottom: 10px; }
+
+    .diff-grid--five { grid-template-columns: repeat(3, 1fr); }
+    .diff-grid--five .diff-card:nth-child(1) { border-color: #4A9EBF; }
+    .diff-grid--five .diff-card:nth-child(2) { border-color: #BFA94A; }
+    .diff-grid--five .diff-card:nth-child(3) { border-color: #4ABF7A; }
+    .diff-grid--five .diff-card:nth-child(4) { border-color: #2A7EA0; }
+    .diff-grid--five .diff-card:nth-child(5) { border-color: #9A9A9A; }
+    .diff-grid--five .diff-card.reveal:nth-child(5) { transition-delay: 0.6s; }
+    .c-label {
+      display: block; font-family: var(--font-heading); font-size: 0.7rem;
+      font-weight: 600; letter-spacing: 0.15em; margin-bottom: 10px;
+    }
+    .diff-grid--five .diff-card:nth-child(1) .c-label { color: #4A9EBF; }
+    .diff-grid--five .diff-card:nth-child(2) .c-label { color: #BFA94A; }
+    .diff-grid--five .diff-card:nth-child(3) .c-label { color: #4ABF7A; }
+    .diff-grid--five .diff-card:nth-child(4) .c-label { color: #2A7EA0; }
+    .diff-grid--five .diff-card:nth-child(5) .c-label { color: #9A9A9A; }
+
+    .callout {
+      margin-top: 32px; padding: clamp(20px, 2.5vw, 32px);
+      border: 1px solid var(--border-medium); border-left: 3px solid var(--accent-blue);
+      background: var(--bg-secondary);
+    }
+    .callout p { font-size: 0.9rem; line-height: 1.7; max-width: 760px; color: var(--text-secondary); }
+    @media (max-width: 1024px) { .diff-grid--five { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px)  { .diff-grid--five { grid-template-columns: 1fr; } }
+
     /* RESPONSIVE */
     @media (max-width: 1024px) {
       .case-card { grid-template-columns: 1fr; }
@@ -519,23 +550,12 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
     <div class="container nav-inner">
       <a href="/" class="nav-logo">DARK <em>MATTER</em></a>
             <ul class="nav-links" id="navLinks">
-        <li><a href="/what.html">What</a></li>
+        <li><a href="/what.html">How It Works</a></li>
         <li class="has-dropdown"><a href="/audit.html">How</a>
           <ul class="dropdown">
             <li><a href="/audit.html">Intelligence Audit</a></li>
             <li><a href="/gtm-data-map.html">GTM Data Map</a></li>
             <li><a href="/how-it-works.html">How It Works</a></li>
-          </ul>
-        </li>
-        <li class="has-dropdown"><a href="/#solution">Solutions</a>
-          <ul class="dropdown">
-            <li><a href="/solutions/cro.html">For the CRO</a></li>
-            <li><a href="/solutions/ceo.html">For the CEO</a></li>
-            <li><a href="/solutions/cfo.html">For the CFO</a></li>
-            <li><a href="/solutions/sales-director.html">For Sales Directors</a></li>
-            <li><a href="/solutions/pmm.html">For PMM &amp; Enablement</a></li>
-            <li><a href="/solutions/revops.html">For RevOps</a></li>
-            <li><a href="/solutions/training.html">For Sales Training</a></li>
           </ul>
         </li>
         <li class="has-dropdown"><a href="/landscape.html">Compare</a>
@@ -552,10 +572,11 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
             <li><a href="/contact.html">Contact</a></li>
             <li><a href="/blog/">Articles</a></li>
             <li><a href="/roi.html">ROI Calculator</a></li>
-            <li><a href="/about.html">Founder</a></li>
+            <li><a href="/about.html">The Founder</a></li>
             <li><a href="/security.html">Data &amp; Security</a></li>
           </ul>
         </li>
+        <li><a href="/contact.html" class="nav-cta">See Your Intelligence Picture</a></li>
       </ul>
       <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -565,51 +586,37 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
   <section class="hero">
     <div class="container">
       <h1>
-        <span class="line1"><span class="typewriter" id="type1"></span></span><br>
-        <span class="line2 thin"><span class="typewriter" id="type2"></span></span>
+        <span class="line1">Sales Intelligence</span><br>
+        <span class="line2 typing">for <span class="thin">Marketing Teams</span></span>
       </h1>
-      <p class="hero-sub">DARK MATTER analyzes your call recordings, CRM data, and deal history over time and at scale — then delivers the competitive intelligence your revenue team needs to win more deals.<br><br>No dashboards. No new logins. Just answers.</p>
+      <p class="hero-sub">Sales and marketing don't talk. DARK MATTER synthesizes what's happening inside your sales motion with what's happening in the market — and delivers the full-funnel intelligence your team has never had. Monthly. In your inbox. No new tools.</p>
       <div class="hero-cta" style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;">
         <a href="/contact.html" class="btn btn--primary">
-          <span>Improve Your Close Rate by 10% in 30 Days</span>
-          <svg class="btn-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="/gtm-data-map.html" class="btn">
-          <span>Data a mess? Start here</span>
+          <span>See Your Intelligence Picture</span>
           <svg class="btn-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat"><div class="num">500+</div><div class="desc">Calls analyzed per customer, per quarter</div></div>
-        <div class="hero-stat"><div class="num">&lt;30</div><div class="desc">Avg. days to first measurable lift</div></div>
-        <div class="hero-stat"><div class="num">+23pt</div><div class="desc">Avg. competitive win rate improvement</div></div>
+        <div class="hero-stat"><div class="num">Zero</div><div class="desc">New tools, logins, or dashboards required</div></div>
+        <div class="hero-stat"><div class="num">Monthly</div><div class="desc">Guided walkthrough — no homework required</div></div>
+        <div class="hero-stat"><div class="num">3 days</div><div class="desc">From kickoff to first briefing in your inbox</div></div>
       </div>
     </div>
   </section>
-
-  <!-- QUOTE BANNER -->
-  <div class="quote-banner reveal">
-    <!-- REPLACE: add background-image url and remove .placeholder class -->
-    <div class="quote-bg placeholder"></div>
-    <div class="container--narrow">
-      <blockquote>"You've built Palantir for sales analytics."</blockquote>
-      <cite><strong>Jacob Valentine</strong> — Managing Director, Claymore Capital</cite>
-    </div>
-  </div>
 
   <!-- PROBLEM -->
   <section id="problem">
     <div class="container">
       <div class="section-header reveal">
         <div class="label">The Problem</div>
-        <h2>Revenue teams are flying blind.</h2>
-        <p>Your tools capture everything. They synthesize nothing. The gap between data and intelligence is where deals die.</p>
+        <h2>You're hitting MQL targets and missing the revenue number.</h2>
+        <p>Sales and marketing don't talk. Different KPIs. Different timelines. Different strategies. It is not a culture problem — it is a structural one. Marketing has never had visibility into what is happening in deals. Sales has never had the context to understand what marketing is doing. The result: marketing builds strategy with half the data.</p>
       </div>
       <div class="problem-grid">
-        <div class="problem-card reveal"><div class="num">01</div><h3>No pattern synthesis at scale</h3><p>Your team listened to 20 calls last quarter. You recorded 500. The patterns in the other 480 are invisible.</p></div>
-        <div class="problem-card reveal"><div class="num">02</div><h3>Stale competitive intelligence</h3><p>Battlecards built 18 months ago by a PMM who's since left. Pricing is wrong. Positioning is stale. Reps stopped using them.</p></div>
-        <div class="problem-card reveal"><div class="num">03</div><h3>No buyer voice analysis</h3><p>You lost 12 deals to Competitor X. You don't know the three objections that killed them — or the talk track that could have saved them.</p></div>
-        <div class="problem-card reveal"><div class="num">04</div><h3>Leaders watch the scoreboard, not the game</h3><p>Dashboards show what happened. Nobody is telling you why — or what to do differently tomorrow.</p></div>
+        <div class="problem-card reveal"><div class="num">01</div><h3>Marketing has never seen the bottom of the funnel</h3><p>What buyers say in deals. What objections are killing close rates. Why you are really losing. That data exists — in call recordings, in closed-lost notes, in emails. Your marketing team has never had access to any of it.</p></div>
+        <div class="problem-card reveal"><div class="num">02</div><h3>The intelligence that does cross the wall is stale by the time it arrives</h3><p>A rep mentions something in a QBR. A PMM hears it in a sales meeting six weeks later. By then the market has moved. The window has closed. The battlecard is wrong.</p></div>
+        <div class="problem-card reveal"><div class="num">03</div><h3>Content is built on assumptions because buyer data never makes it upstream</h3><p>Your content team publishes what they think buyers want to read. The evidence of what buyers actually care about is in hundreds of call recordings nobody has synthesized.</p></div>
+        <div class="problem-card reveal"><div class="num">04</div><h3>Campaigns optimize for lead flow when they should optimize for revenue</h3><p>That gap does not close on its own. It closes when marketing has the same picture sales has — and can build a strategy that reaches all the way to the close.</p></div>
       </div>
     </div>
   </section>
@@ -619,44 +626,26 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
     <video class="band-img" autoplay muted loop playsinline src="assets/band-video.mp4"></video>
     <div class="band-overlay"></div>
     <div class="band-cta-layer">
-      <a href="/contact.html" class="cta-primary">Equip Your Team with the Intelligence They Need →</a>
+      <a href="/what.html" class="cta-primary">See How It Works →</a>
     </div>
   </div>
 
-  <!-- CASE STUDIES -->
+  <!-- WHAT CHANGES -->
   <section id="results" class="cases">
     <div class="container">
       <div class="section-header reveal">
-        <div class="label">Results</div>
-        <h2>Capability, proven.</h2>
+        <div class="label">What Changes</div>
+        <h2>What marketing can finally answer.</h2>
+        <p>Questions your team is currently guessing at. DARK MATTER makes them answerable.</p>
       </div>
-      <div class="case-card reveal">
-        <div class="case-info">
-          <div class="case-meta"><span class="label">Case Study</span><span class="dot"></span><span class="label">Austin, TX</span></div>
-          <h3>B2B Endpoint Security Platform</h3>
-          <p>Series B ($29M ARR). Win rate plateaued at 38% in competitive deals — 12-person team losing winnable deals to stale battlecards. Full competitive intelligence deployment: 500+ call analysis, living battlecards, weekly radar.</p>
-        </div>
-        <div class="case-metrics">
-          <div class="metric"><div class="val val--g">+23pts</div><div class="ml">Win rate: 38% → 61%</div></div>
-          <div class="metric"><div class="val">28 Days</div><div class="ml">To first measurable lift</div></div>
-          <div class="metric"><div class="val val--g">$4.2M</div><div class="ml">Pipeline recovered</div></div>
-          <div class="metric"><div class="val">-40%</div><div class="ml">Rep ramp time</div></div>
-        </div>
+      <div class="problem-grid">
+        <div class="problem-card q-card reveal"><h3>What language do our buyers actually use to describe their problem?</h3><p>Not what we assume — what they say in calls, in reviews, and in communities when no one is selling to them.</p></div>
+        <div class="problem-card q-card reveal"><h3>Which content assets are actually influencing deals?</h3><p>What is being referenced and requested in sales conversations versus what we are producing and promoting.</p></div>
+        <div class="problem-card q-card reveal"><h3>Why are we really losing deals?</h3><p>Not the CRM dropdown. What buyers say when they are not being sold to — the real objections, in their own words.</p></div>
+        <div class="problem-card q-card reveal"><h3>What are competitors doing that will hit our pipeline in 60 days?</h3><p>Hiring patterns, funding moves, pricing shifts — weeks before they show up in closed-lost data.</p></div>
+        <div class="problem-card q-card reveal"><h3>Which buyer segments are converting and which are wasting everyone's time?</h3><p>ICP drift detected from actual deal patterns, not from the persona document written three years ago.</p></div>
+        <div class="problem-card q-card reveal"><h3>What objections are reps encountering that our content does not address?</h3><p>The gap between what marketing publishes and what deals actually need — visible for the first time.</p></div>
       </div>
-      <div class="case-card reveal" style="margin-top: 2px;">
-        <div class="case-info">
-          <div class="case-meta"><span class="label">Case Study</span><span class="dot"></span><span class="label">Denver, CO</span></div>
-          <h3>B2B Data Integration & ETL Platform</h3>
-          <p>Series A ($11M ARR). Well-funded competitor dropped pricing 30% and launched displacement campaign. Sales team was reactive — learning about competitor moves mid-deal. Deployed competitive radar + living battlecards.</p>
-        </div>
-        <div class="case-metrics">
-          <div class="metric"><div class="val val--g">+18pts</div><div class="ml">Win rate: 29% → 47%</div></div>
-          <div class="metric"><div class="val">+31%</div><div class="ml">Deal velocity</div></div>
-          <div class="metric"><div class="val val--g">92%</div><div class="ml">Pricing holds (was 76%)</div></div>
-          <div class="metric"><div class="val">6x</div><div class="ml">Battlecard usage/rep</div></div>
-        </div>
-      </div>
-      <div class="case-note">* Details, verification, and references provided upon request.</div>
     </div>
   </section>
 
@@ -673,17 +662,21 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
   <section id="solution">
     <div class="container">
       <div class="section-header reveal">
-        <div class="label">The Solution</div>
-        <h2><span class="typewriter-scroll" id="typeSolution" data-text="What DARK MATTER does differently."></span></h2>
-        <p>Wider analysis. Deeper synthesis. A human intelligence layer no platform can replicate.</p>
+        <div class="label">How It Works</div>
+        <h2><span class="typewriter-scroll" id="typeSolution" data-text="Five signal categories. Synthesized together over time."></span></h2>
+        <p>Most tools look at one or two signals in isolation. DARK MATTER synthesizes five simultaneously and tracks how they move together. That is what makes the output directive — not just descriptive.</p>
       </div>
-      <div class="diff-grid">
-        <div class="diff-card reveal"><h3>Scale, not samples</h3><p>500+ calls per quarter analyzed — not 10 interviews. Statistical patterns from your entire call library, not anecdotes from a cherry-picked sample.</p></div>
-        <div class="diff-card reveal"><h3>Cross-source synthesis</h3><p>Sales calls + CRM deal data + emails + post-mortem feedback — all correlated. What buyers told you, what reps said, what the CRM shows.</p></div>
-        <div class="diff-card reveal"><h3>Actionable output, not artifacts</h3><p>Living battlecards. Board-ready narratives. Weekly competitive radar. Delivered to your inbox — zero logins, zero dashboards.</p></div>
-        <div class="diff-card reveal"><h3>Built by a 3x VP of Sales</h3><p>Not consultants guessing from the outside. A practitioner who's sat in the CRO chair and knows which insights actually change pipeline outcomes.</p></div>
+      <div class="diff-grid diff-grid--five">
+        <div class="diff-card reveal"><span class="c-label">C1</span><h3>Customers</h3><p>Voice-of-customer intelligence. Win/loss patterns, buyer language, ICP drift, churn signals. What buyers say when they are not in a sales conversation.</p></div>
+        <div class="diff-card reveal"><span class="c-label">C2</span><h3>Competitors</h3><p>Hiring signals, funding moves, pricing shifts, positioning changes, review velocity. What competitors do — not what they say.</p></div>
+        <div class="diff-card reveal"><span class="c-label">C3</span><h3>Content</h3><p>What buyers search for and find. Demand patterns, SERP ownership, AI citation gaps, which content actually moves deals versus which sits unused.</p></div>
+        <div class="diff-card reveal"><span class="c-label">C4</span><h3>Conversations</h3><p>What is happening inside your deals. Call patterns, objection frequency, competitive mentions, rep behavior — synthesized at the portfolio level, not by individual rep.</p></div>
+        <div class="diff-card reveal"><span class="c-label">C5</span><h3>Chronology</h3><p>The dimension that makes the other four compound. A battlecard is accurate right up until a competitor changes their price. Chronology tracks how all five signals move together over time — so the briefing you receive is a living picture, not a snapshot.</p></div>
       </div>
-      <a href="/landscape.html" class="landscape-link">See how we compare to Klue, Clozd, Gong, and others <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <div class="callout reveal">
+        <p>Most intelligence is a snapshot. DARK MATTER is a continuous picture. Every briefing is built on the same five categories, tracked over time, so patterns surface before they become problems.</p>
+      </div>
+      <a href="/landscape.html" class="landscape-link">See how DARK MATTER compares to Klue, Clozd, Gong, and others <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
   </section>
 
@@ -692,7 +685,7 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
     <img class="band-img" src="assets/band-city.png" alt="City skyline at night">
     <div class="band-overlay"></div>
     <div class="band-cta-layer">
-      <a href="/contact.html" class="cta-primary">Learn What Makes DARK MATTER Different →</a>
+      <a href="/contact.html" class="cta-primary">See Your Intelligence Picture →</a>
     </div>
   </div>
 
@@ -700,34 +693,35 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
   <section id="process" style="background: var(--bg-secondary);">
     <div class="container">
       <div class="section-header reveal">
-        <div class="label">Process</div>
-        <h2>From flying blind to higher close rates in 30 days.</h2>
+        <div class="label">Get Started</div>
+        <h2>We build your intelligence picture before you give us anything.</h2>
+        <p>DARK MATTER starts with public signals. No CRM access. No call recordings. Just proof of what we can see. If it does not change how you think about your market, the conversation ends there.</p>
       </div>
       <div class="process-row reveal">
-        <div class="process-step"><div class="sn">01</div><h3><a href="/audit.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--border-medium);">Intelligence Audit</a></h3><p>We connect to your call recording software (Gong, Chorus, Fireflies, etc), analyze your last two quarters of competitive deals, and present a full synthesis with artifacts showing the patterns you've been missing to leadership in a 60 minute session.</p><div class="price">$7,500 one-time — credited against any ongoing retainer</div></div>
-        <div class="process-step"><div class="sn">02</div><h3>System Deployment</h3><p>We build your intelligence layer — automated call analysis, competitive monitoring, battlecard generation. Deliverables land in your inbox. Operational within 30 days.</p><div class="price">Fully deployed in under a month</div></div>
-        <div class="process-step"><div class="sn">03</div><h3>Continuous Intelligence</h3><p>Quarterly win/loss analysis. Monthly battlecard refreshes. Weekly competitive radar. Board-ready narratives. Intelligence that compounds every quarter.</p><div class="price">Starting at $25,000 per quarter</div></div>
+        <div class="process-step"><div class="sn">01</div><h3>We start with public data</h3><p>Competitor moves, market demand, content gaps, review sentiment — all from publicly available signals. No access required from your side.</p><div class="price">Three days. No data access required.</div></div>
+        <div class="process-step"><div class="sn">02</div><h3>You see what we found</h3><p>A structured briefing built for your market and your competitors. Most marketing leaders see at least one thing they did not know and should have.</p><div class="price">If it is not worth a conversation, you owe us nothing.</div></div>
+        <div class="process-step"><div class="sn">03</div><h3>You decide what is next</h3><p>The internal layer — call recordings, CRM, email — is where the real intelligence lives. We earn that access by proving value on public data first.</p><div class="price">Starting at $25,000 per quarter</div></div>
       </div>
 
       <div class="section-header reveal" style="margin-top: clamp(48px, 8vh, 80px);">
-        <h2>Four deliverables. <span style="color: var(--text-tertiary);">Zero dashboards.</span></h2>
+        <h2>What you get. <span style="color: var(--text-tertiary);">Every month.</span></h2>
       </div>
       <div class="del-stack">
         <div class="del-card">
-          <div class="del-text"><span class="cadence c-q">Quarterly</span><h3>Win/Loss Pattern Analysis</h3><p>Statistical patterns from every competitive deal. Which objections kill deals? Which talk tracks win? 15–20 page report + walkthrough.</p></div>
-          <div class="del-img"><img src="assets/del-winloss.png" alt="Win/Loss Pattern Analysis Dashboard"></div>
+          <div class="del-text"><span class="cadence c-m">Monthly</span><h3>The Intelligence Briefing</h3><p>Synthesized from all five signal categories. Written for your role. Every finding structured as: Signal — Interpretation — Risk — Action. Monthly guided walkthrough included.</p></div>
+          <div class="del-img"><img src="assets/del-winloss.png" alt="The Intelligence Briefing"></div>
         </div>
         <div class="del-card">
-          <div class="del-text"><span class="cadence c-m">Monthly</span><h3>Living Battlecards</h3><p>Updated from real buyer conversations. New objections, pricing intel, and counter-positioning proven to work.</p></div>
-          <div class="del-img"><img src="assets/del-battlecard.png" alt="Living Battlecard"></div>
+          <div class="del-text"><span class="cadence c-m">Monthly</span><h3>The Sales Brief</h3><p>Sales receives a parallel briefing built from the same underlying data. Your brief shows what sales is doing. Their brief shows what marketing is doing. Neither team has to ask the other for anything.</p></div>
+          <div class="del-img"><img src="assets/del-battlecard.png" alt="The Sales Brief"></div>
         </div>
         <div class="del-card">
-          <div class="del-text"><span class="cadence c-w">Weekly</span><h3>Competitive Radar</h3><p>Competitor moves that matter: product launches, pricing changes, hiring signals, review sentiment. Signal, not noise.</p></div>
-          <div class="del-img"><img src="assets/del-radar.png" alt="Competitive Radar Digest"></div>
+          <div class="del-text"><span class="cadence c-w">Continuous</span><h3>Market Signal Tracking</h3><p>Competitor moves, funding events, pricing shifts, hiring patterns, review velocity — tracked across all five categories continuously. Early warning, not post-mortem.</p></div>
+          <div class="del-img"><img src="assets/del-radar.png" alt="Market Signal Tracking"></div>
         </div>
         <div class="del-card">
-          <div class="del-text"><span class="cadence c-q">Quarterly</span><h3>Board-Ready Narrative</h3><p>Strategic synthesis your CEO drops into the board deck. Win rate trends, competitive threats, recommended responses.</p></div>
-          <div class="del-img"><img src="assets/del-board.png" alt="Board-Ready Narrative Slide"></div>
+          <div class="del-text"><span class="cadence c-q">Quarterly</span><h3>Strategy Briefing</h3><p>A synthesis of the quarter's most important signals across all five categories — with specific recommendations for the next quarter. Written for marketing leadership. Ready for the board deck.</p></div>
+          <div class="del-img"><img src="assets/del-board.png" alt="Strategy Briefing"></div>
         </div>
       </div>
     </div>
@@ -739,38 +733,15 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
     <div class="band-overlay" style="background: linear-gradient(to bottom, var(--bg-secondary) 0%, rgba(10,10,10,0.1) 15%, rgba(10,10,10,0.1) 85%, var(--bg-primary) 100%);"></div>
   </div>
 
-  <!-- FOUNDER -->
-  <section id="founder">
-    <div class="container">
-      <div class="founder-row reveal">
-        <div class="founder-photo"><img src="assets/founder-headshot.jpg" alt="Colin Dowling, Founder of DARK MATTER"></div>
-        <div class="founder-info">
-          <div class="label" style="margin-bottom: 16px;">About the Founder</div>
-          <h2>Colin Dowling</h2>
-          <div class="founder-title">Founder, DARK MATTER</div>
-          <p>I've been in the VP of Sales seat multiple times. From VP of Sales for GoDaddy's Enterprise Sales division to VP of Channel for a PE-backed $100M cloud infrastructure firm, to serving as SVP of Revenue at a $650M AI startup, I know first-hand the battles that sales leaders face and the tools and tactics that help win the war.</p>
-          <p>That's why I built DARK MATTER — so revenue leaders and their teams can enter competitive deals with the best possible chance to win every time.</p>
-          <div class="creds">
-            <span class="cred">VP Enterprise Sales — GoDaddy (NYSE: GDDY)</span>
-            <span class="cred">SVP Revenue — Alembic (Seed → $145M B)</span>
-            <span class="cred">VP Partnerships — Liquid Web</span>
-            <span class="cred">Enterprise Sales — WP Engine</span>
-            <span class="cred">3x Founder</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- CTA -->
   <section class="final-cta">
     <div class="container">
       <div class="reveal">
-        <div class="label label--accent" style="margin-bottom: 20px;">Get Started</div>
-        <h2>An entire intelligence department.<br>Deployed, ramped, and working in under 30 days.</h2>
-        <p>We connect to your call recordings and CRM, analyze your last two quarters of competitive deals, and present the patterns you've been missing in a 60-minute session with your leadership team. Most CROs find at least one surprise.</p>
-        <a href="/audit.html" class="btn btn--primary">
-          <span>Book Your Intelligence Audit</span>
+        <div class="label label--accent" style="margin-bottom: 20px;">See Your Intelligence Picture</div>
+        <h2>The full-funnel intelligence to build a strategy that hits every KPI.</h2>
+        <p>Start with the public-data audit. Three days. No access required. See what DARK MATTER can see about your market before you give us anything.</p>
+        <a href="/contact.html" class="btn btn--primary">
+          <span>See Your Intelligence Picture</span>
           <svg class="btn-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -833,16 +804,6 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
       }
       tick();
     }
-    setTimeout(() => {
-      typewrite(document.getElementById('type1'), 'Dashboards tell you what happened.', 38, () => {
-        const line2 = document.querySelector('.line2');
-        line2.classList.add('typing');
-        setTimeout(() => {
-          typewrite(document.getElementById('type2'), 'We tell you why.', 50);
-        }, 300);
-      });
-    }, 400);
-
     // Scroll-triggered typewriter
     const scrollTypeEls = document.querySelectorAll('.typewriter-scroll');
     const typeObs = new IntersectionObserver(entries => {
