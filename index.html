@@ -127,6 +127,8 @@ p { font-size: clamp(0.9rem, 1vw, 1rem); color: var(--text-secondary); max-width
   letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-tertiary);
 }
 .label--accent { color: var(--accent-blue); }
+.label--red { color: var(--accent-red); }
+.label--green { color: var(--accent-green); }
 
 .section-header { margin-bottom: clamp(40px, 5vh, 64px); }
 .section-header .label { margin-bottom: 16px; }
@@ -638,7 +640,7 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
   <section id="problem">
     <div class="container">
       <div class="section-header reveal" style="margin-bottom:0;">
-        <div class="label">The Problem</div>
+        <div class="label label--red">The Problem</div>
         <h2>You're hitting MQL targets and missing the revenue number.</h2>
         <p>Sales and marketing don't talk. Different KPIs. Different timelines. Different strategies. It is not a culture problem — it is a structural one. Marketing has never had visibility into what is happening in deals. Sales has never had the context to understand what marketing is doing. The result: marketing builds strategy with half the data.</p>
         <button class="acc-toggle" type="button" aria-expanded="false" aria-controls="problemPanel" data-acc>
@@ -663,8 +665,8 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
   <section id="solution">
     <div class="container">
       <div class="section-header reveal" style="margin-bottom:0;">
-        <div class="label label--accent">The Solution</div>
-        <h2>Finally, a complete picture to act on.</h2>
+        <div class="label label--green">The Solution</div>
+        <h2>The complete, updated picture to act on.</h2>
         <p>DARK MATTER performs time-series synthesis on the data siloed in sales tools, marketing analytics, customer intelligence, and competitor analysis to show what's happening in your funnel, why, and what to do next to accelerate growth.</p>
         <button class="acc-toggle" type="button" aria-expanded="false" aria-controls="solutionPanel" data-acc>
           <span class="acc-icon"></span><span class="acc-text">See the five signal categories</span>
