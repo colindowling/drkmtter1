@@ -503,7 +503,7 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
         </div>
 
         <div class="calendly-wrapper">
-          <div class="calendly-inline-widget" data-url="https://calendly.com/30minutechat/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=111111&text_color=f0ede8&primary_color=4a9ebf"></div>
+          <div class="calendly-inline-widget" data-url="https://calendly.com/30minutechat/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=111111&text_color=f0ede8&primary_color=4a9ebf&utm_source=darkmatter&utm_medium=website&utm_campaign=contact_page"></div>
         </div>
       </div>
 
@@ -610,7 +610,7 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
           const res = await fetch(CONTACT_ENDPOINT, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify({ name, email, company, message, source: 'contact-page' })
+            body: JSON.stringify({ name, email, company, message, source: 'contact-page', _subject: 'DARK MATTER inquiry — ' + company })
           });
 
           if (res.ok) {
@@ -632,6 +632,22 @@ footer { border-top: 1px solid var(--border-subtle); padding: 40px 0; }
         }
       });
     }
+  </script>
+
+  <script>
+    // Calendly conversion tracking. calendly.event_scheduled is the booking itself.
+    window.addEventListener('message', function(e) {
+      if (!e || !e.data || typeof e.data.event !== 'string') return;
+      var ev = e.data.event;
+      if (ev.lastIndexOf('calendly.', 0) !== 0) return;
+      if (typeof gtag !== 'function') return;
+      if (ev === 'calendly.date_and_time_selected') {
+        gtag('event', 'calendly_time_selected', { location: 'contact-page', venture: 'darkmatter' });
+      }
+      if (ev === 'calendly.event_scheduled') {
+        gtag('event', 'meeting_booked', { location: 'contact-page', venture: 'darkmatter' });
+      }
+    });
   </script>
 </body>
 </html>
